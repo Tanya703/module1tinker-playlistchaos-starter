@@ -168,7 +168,7 @@ def search_songs(
 
     for song in songs:
         value = str(song.get(field, "")).lower()
-        if value and value in q:
+        if value and q in value:  # fix: check if query is inside the field value, not the other way around
             filtered.append(song)
 
     return filtered
